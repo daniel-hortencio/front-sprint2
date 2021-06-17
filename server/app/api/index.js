@@ -3,81 +3,91 @@ var api = {};
 
 var produtos = [
   {
-    imagem: "assets/c1.webp",
-    descricao:
+    imageURL: "assets/c1.webp",
+    description:
       "Jaqueta Puffer Juvenil Com Capuz Super Mario Branco Tam 10 a 18",
-    valor: "199,90",
+    price: "199,90",
   },
   {
-    imagem: "assets/c2.webp",
-    descricao:
+    imageURL: "assets/c2.webp",
+    description:
       "Camiseta Infantil Manga Curta Super Mario Azul Tam 4 a 10",
-    valor: "39,90",
+    price: "39,90",
   },
   {
-    imagem: "assets/c3.webp",
-    descricao:
+    imageURL: "assets/c3.webp",
+    description:
       "Camiseta Infantil Manga Curta Super Mario Branco Tam 4 a 10",
-    valor: "49,90",
+    price: "49,90",
   },
   {
-    imagem: "assets/c4.webp",
-    descricao:
+    imageURL: "assets/c4.webp",
+    description:
       "Camiseta Infantil Manga Longa Super Mario Vermelho Tam 4 a 10",
-    valor: "49,90",
+    price: "49,90",
   },
   {
-    imagem: "assets/c5.webp",
-    descricao:
+    imageURL: "assets/c5.webp",
+    description:
       "Camiseta Juvenil Manga Curta Mario Bros Cinza",
-    valor: "39,90",
+    price: "39,90",
   },
   {
-    imagem: "assets/c6.webp",
-    descricao:
+    imageURL: "assets/c6.webp",
+    description:
       "Camiseta Juvenil Manga Curta Super Mario Azul Tam 10 a 18",
-    valor: "39,90",
+    price: "39,90",
   },
   {
-    imagem: "assets/c7.webp",
-    descricao:
+    imageURL: "assets/c7.webp",
+    description:
       "Regata Infantil Mario Bros Branco Tam 4 a 10",
-    valor: "29,90",
+    price: "29,90",
   },
   {
-    imagem: "assets/c8.webp",
-    descricao:
+    imageURL: "assets/c8.webp",
+    description:
       "Camiseta Juvenil Manga Curta Super Mario Branco Tam 10 a 18",
-    valor: "49,90",
+    price: "49,90",
   },
   {
-    imagem: "assets/c9.webp",
-    descricao:
+    imageURL: "assets/c9.webp",
+    description:
       "Camiseta Infantil Manga Curta Super Star Mario Bros Cinza Mescla Chumbo Tam 4 a 10",
-    valor: "39,90",
+    price: "39,90",
   },
   {
-    imagem: "assets/c10.webp",
-    descricao:
+    imageURL: "assets/c10.webp",
+    description:
       "Blusa de Moletom Juvenil com Capuz Mario Bros Cinza Mescla Tam 10 a 16",
-    valor: "149,90",
+    price: "149,90",
   },
   {
-    imagem: "assets/c11.webp",
-    descricao:
+    imageURL: "assets/c11.webp",
+    description:
       "Camiseta Infantil Manga Curta Mario Bros Vermelho Tam 4 a 10",
-    valor: "49,90",
+    price: "49,90",
   },
   {
-    imagem: "assets/c12.webp",
-    descricao:
+    imageURL: "assets/c12.webp",
+    description:
       "Camiseta Infantil Manga Curta Mário Bros Vermelha Tam 4 a 10",
-    valor: "39,90",
+    price: "39,90",
   },
 ];
 
 api.lista = function (req, res) {
-  res.json(produtos);
+  let { search } = req.query
+  let listProducts = produtos
+
+  if (search) {
+    listProducts = produtos
+      .filter(produto =>
+        produto.description.toUpperCase().includes(search.toUpperCase()))
+      .map(produto => produto)
+  }
+
+  res.json(listProducts);
 };
 
 module.exports = api;

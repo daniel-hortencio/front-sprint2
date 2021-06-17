@@ -13,7 +13,8 @@
 
 <body>
 
-  <div id="mensagemView"></div>
+  <div id="mensagemView">    
+  </div>
 
   <div class="page-container">
     <header class="header">
@@ -36,10 +37,10 @@
             <img class="header__img" src="assets/riachuelo.svg" alt="Logo" />
           </h1>
         </div>
-        <div class="header__search">
+        <form class="header__search" onsubmit="produtoController.searchProducts(event)">
           <img class="header__icon" src="assets/search.svg">
-          <input class="header__input" type="search" placeholder="O que você está procurando?" />
-        </div>
+          <input class="header__input" id="search-input" type="search" placeholder="O que você está procurando?" />
+        </form>
 
         <nav class="header__menu menu">
           <ul class="menu__list">
@@ -132,126 +133,7 @@
       </section>
 
       <section class="main__products products">
-        <div class="products__row">
-          <ol class="products__list">
-            <li class="products__card">
-              <div class="card">
-                <img class="card__img" src="assets/c1.webp" alt="Jaqueta Puffer Juvenil Com Capuz Super Mario Branco Tam 10 a 18" />
-                <p class="card__description">
-                  Jaqueta Puffer Juvenil Com Capuz Super Mario Branco Tam 10 a 18
-                </p>
-                <p class="card__price">R$ 199,90</p>
-              </div>
-            </li>
-            <li class="products__card">
-              <div class="card">
-                <img class="card__img" src="assets/c2.webp" alt="Camiseta Infantil Manga Curta Super Mario Azul Tam 4 a 10" />
-                <p class="card__description">
-                  Camiseta Infantil Manga Curta Super Mario Azul Tam 4 a 10
-                </p>
-                <p class="card__price">R$ 39,90</p>
-              </div>
-            </li>
-            <li class="products__card">
-              <div class="card">
-                <img class="card__img" src="assets/c3.webp" alt="Camiseta Infantil Manga Curta Super Mario Branco Tam 4 a 10" />
-                <p class="card__description">
-                  Camiseta Infantil Manga Curta Super Mario Branco Tam 4 a 10
-                </p>
-                <p class="card__price">R$ 49,90</p>
-              </div>
-            </li>
-            <li class="products__card">
-              <div class="card">
-                <img class="card__img" src="assets/c4.webp" alt="Camiseta Infantil Manga Longa Super Mario Vermelho Tam 4 a 10" />
-                <p class="card__description">
-                  Camiseta Infantil Manga Longa Super Mario Vermelho Tam 4 a 10
-                </p>
-                <p class="card__price">R$ 49,90</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-        <div class="products__row">
-          <ol class="products__list">
-            <li class="products__card">
-              <div class="card">
-                <img class="card__img" src="assets/c5.webp" alt="Camiseta Juvenil Manga Curta Mario Bros Cinza" />
-                <p class="card__description">
-                  Camiseta Juvenil Manga Curta Mario Bros Cinza
-                </p>
-                <p class="card__price">R$ 39,90</p>
-              </div>
-            </li>
-            <li class="products__card">
-              <div class="card">
-                <img class="card__img" src="assets/c6.webp" alt="Camiseta Juvenil Manga Curta Super Mario Azul Tam 10 a 18" />
-                <p class="card__description">
-                  Camiseta Juvenil Manga Curta Super Mario Azul Tam 10 a 18
-                </p>
-                <p class="card__price">R$ 39,90</p>
-              </div>
-            </li>
-            <li class="products__card">
-              <div class="card">
-                <img class="card__img" src="assets/c7.webp" alt="Regata Infantil Mario Bros Branco Tam 4 a 10" />
-                <p class="card__description">
-                  Regata Infantil Mario Bros Branco Tam 4 a 10
-                </p>
-                <p class="card__price">R$ 29,90</p>
-              </div>
-            </li>
-            <li class="products__card">
-              <div class="card">
-                <img class="card__img" src="assets/c8.webp" alt="Camisa 1" />
-                <p class="card__description">
-                  Camiseta Juvenil Manga Curta Super Mario Branco Tam 10 a 18
-                </p>
-                <p class="card__price">R$ 49,90</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-        <div class="products__row">
-          <ol class="products__list">
-            <li class="products__card">
-              <div class="card">
-                <img class="card__img" src="assets/c9.webp" alt="Camiseta Infantil Manga Curta Super Star Mario Bros Cinza Mescla Chumbo Tam 4 a 10" />
-                <p class="card__description">
-                  Camiseta Infantil Manga Curta Super Star Mario Bros Cinza Mescla Chumbo Tam 4 a 10
-                </p>
-                <p class="card__price">R$ 39,90</p>
-              </div>
-            </li>
-            <li class="products__card">
-              <div class="card">
-                <img class="card__img" src="assets/c10.webp" alt="Blusa de Moletom Juvenil com Capuz Mario Bros Cinza Mescla Tam 10 a 16" />
-                <p class="card__description">
-                  Blusa de Moletom Juvenil com Capuz Mario Bros Cinza Mescla Tam 10 a 16
-                </p>
-                <p class="card__price">R$ 149,90</p>
-              </div>
-            </li>
-            <li class="products__card">
-              <div class="card">
-                <img class="card__img" src="assets/c11.webp" alt="Camiseta Infantil Manga Curta Mario Bros Vermelho Tam 4 a 10" />
-                <p class="card__description">
-                  Camiseta Infantil Manga Curta Mario Bros Vermelho Tam 4 a 10
-                </p>
-                <p class="card__price">R$ 49,90</p>
-              </div>
-            </li>
-            <li class="products__card">
-              <div class="card">
-                <img class="card__img" src="assets/c12.webp" alt="Camiseta Infantil Manga Curta Mário Bros Vermelha Tam 4 a 10" />
-                <p class="card__description">
-                  Camiseta Infantil Manga Curta Mário Bros Vermelha Tam 4 a 10
-                </p>
-                <p class="card__price">R$ 39,90</p>
-              </div>
-            </li>
-          </ol>
-        </div>
+        <ol class="products__list" id="products-container"></ol>
       </section>
     </main>
     <footer class="footer">
@@ -528,6 +410,7 @@
   <script src="js/app/models/Mensagem.js"></script>
   <script src="js/app/models/Produto.js"></script>
   <script src="js/app/models/ListaProdutos.js"></script>
+  <script src="js/app/models/FormSearchProduct.js"></script>
 
   <!-- Services -->
   <script src="js/app/services/ProxyFactory.js"></script>
@@ -544,9 +427,19 @@
   <script src="js/app/views/View.js"></script>
   <script src="js/app/views/MensagemView.js"></script>
   <script src="js/app/views/ProdutosView.js"></script>
+
   <script>
-    const produtoController = new ProdutoController();
+    const produtoController = new ProdutoController();   
   </script>
+
+  <!-- <script>
+    function handleSearchProduct(e){
+      e.preventDefault()      
+      
+      const input = document.getElementById("search-input")
+      alert(input.value)
+    }
+  </script> -->
 
 </body>
 
