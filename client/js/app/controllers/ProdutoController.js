@@ -25,7 +25,8 @@ class ProdutoController {
 
     service.obterProdutos()
       .then(res => {
-        let array = res.map(product => new Produto(product.imageURL, product.description, product.price)
+        let array = res.map(product =>
+          new Produto(product.imageURL, product.description, product.price)
         )
         array.forEach(product => this._products.adiciona(product))
       })

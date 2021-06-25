@@ -2,7 +2,7 @@ class ProdutoService {
 
   constructor() {
     this._http = new HttpService()
-    this._url = "/produtos"
+    this._url = "/products"
     this._search = ""
     self = this
   }

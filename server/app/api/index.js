@@ -76,7 +76,116 @@ var produtos = [
   },
 ];
 
-api.lista = function (req, res) {
+var filters = [
+  {
+    id: "size",
+    label: "Tamanho"
+  },
+  {
+    id: "color",
+    label: "Cor"
+  },
+  {
+    id: "department",
+    label: "Departamento"
+  },
+  {
+    id: "category",
+    label: "Categoria"
+  },
+  {
+    id: "sleeve",
+    label: "Manga"
+  }
+]
+
+var categories = {
+  all: [
+    {
+      id: 1,
+      label: "Novidades",
+      link: "#home"
+    },
+    {
+      id: 2,
+      label: "Feminino",
+      link: "#home"
+    },
+    {
+      id: 3,
+      label: "Masculino",
+      link: "#home"
+    },
+    {
+      id: 4,
+      label: "Infantil",
+      link: "#home"
+    },
+    {
+      id: 5,
+      label: "Moda Íntima",
+      link: "#home"
+    },
+    {
+      id: 6,
+      label: "Calçados",
+      link: "#home"
+    },
+    {
+      id: 7,
+      label: "Acessórios e Relógios",
+      link: "#home"
+    },
+    {
+      id: 8,
+      label: "Beleza e Perfume",
+      link: "#home"
+    },
+    {
+      id: 9,
+      label: "Casa Riachuelo",
+      link: "#home"
+    },
+    {
+      id: 10,
+      label: "Eletrônicos",
+      link: "#home"
+    },
+    {
+      id: 11,
+      label: "Personagens",
+      link: "#home"
+    },
+    {
+      id: 12,
+      label: "Outlet",
+      link: "#home"
+    }
+  ],
+  current: [
+    {
+      id: 1,
+      link: "#home",
+      name: "Home"
+    },
+    {
+      id: 2,
+      link: "#home",
+      name: "Infantil"
+    },
+    {
+      id: 3,
+      link: "#home",
+      name: "Personagens"
+    },
+    {
+      id: 4,
+      name: "Mario Bros"
+    }
+  ]
+}
+
+api.products = function (req, res) {
   let { search } = req.query
   let listProducts = produtos
 
@@ -88,6 +197,18 @@ api.lista = function (req, res) {
   }
 
   res.json(listProducts);
+};
+
+api.filters = function (req, res) {
+  res.json(filters);
+};
+
+api.categories = function (req, res) {
+  res.json(categories.all);
+};
+
+api.breadcrumbs = function (req, res) {
+  res.json(categories.current);
 };
 
 module.exports = api;
