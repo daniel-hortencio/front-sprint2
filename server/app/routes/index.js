@@ -7,5 +7,6 @@ module.exports = function (app) {
   app.route("/filters").get(api.filters);
   app.route("/categories").get(api.categories);
   app.route("/breadcrumbs").get(api.breadcrumbs);
+  app.route("/productById").get(api.productById);
 };
 
